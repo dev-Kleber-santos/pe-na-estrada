@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="/css/adm.css">
-    
+    <link rel="stylesheet" href="../css/adm.css">
 </head>
 
 <body>
     <header>
-        <nav><a class="logo" href="/index.html">ADM - VIAGENS</a></nav>
+        <nav>
+            <a class="logo" href="../index.html">ADM - VIAGENS</a>
+        </nav>
     </header>
 
     <div class="admin-form">
@@ -22,14 +23,15 @@
         <label for="inputArquivo">Foto do Destino:</label>
         <input type="file" id="imagem" accept="image/*">
         <button class="btn-salvar" onclick="salvarViagem()">Publicar no Site</button>
-        <p><a href="/index.html" style="color: #949191;">← Voltar para a Home</a></p>
+        <p><a href="../index.html" style="color: #949191;">← Voltar para a Home</a></p>
     </div>
+
     <div class="admin-form" style="margin-top: 20px;">
         <h2>Gerenciar Viagens</h2>
         <div id="lista-gerenciamento"></div>
     </div>
 
-    <script src="/js/admin.js"></script>
+    <script src="../js/admin.js"></script>
 </body>
 
 </html>
