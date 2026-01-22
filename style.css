@@ -113,6 +113,7 @@ img {
 .nav-list {
     list-style: none;
     display: flex;
+    z-index: 1000;
 }
 
 .nav-list li {
