@@ -113,7 +113,7 @@ img {
 .nav-list {
     list-style: none;
     display: flex;
-    z-index: 1000;
+    z-index: 1000 !important;
 }
 
 .nav-list li {
@@ -235,6 +235,8 @@ span {
 .mobile-menu {
     cursor: pointer;
     display: none;
+    z-index: 1002;
+    position: relative;
 }
 
 @media (max-width: 999px) {
@@ -250,7 +252,7 @@ span {
         position: fixed;
         top: 10vh;
         right: 0;
-        width: 50vw;
+        width: 70vw;
         height: 92vh;
         background:rgba(10, 60, 120, 0.85);
         backdrop-filter: blur(5px);
@@ -267,6 +269,7 @@ span {
         opacity: 0;
         transform: translate(px);
         margin-bottom: 30px;
+        font-size: 1.5rem;
     }
 
     .mobile-menu {
