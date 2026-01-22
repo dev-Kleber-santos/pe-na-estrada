@@ -1,0 +1,44 @@
+
+    .admin-form {
+        width: 90%;
+        max-width: 500px;
+        margin: 40px auto;
+        background: #23232e;
+        padding: 25px;
+        border-radius: 10px;
+        color: white;
+        box-sizing: border-box;
+    }
+
+    .admin-form input,
+    .admin-form textarea {
+        width: 420px;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+    }
+
+    .btn-salvar {
+        width: 100%;
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Ajuste para telas muito pequenas */
+    @media (max-width: 480px) {
+        .admin-form {
+            margin: 20px auto;
+            padding: 15px;
+        }
+        h2 {
+            font-size: 1.2rem;
+        }
+    }

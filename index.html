@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERO PONTO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo (2).png?v=1" >
+    <link rel="apple-touch-icon" href="assets/logo (2).png?v=1">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="index.html">
+                <img src="assets/logo.png" alt="Logo" class="logo-img">
+                <span>AERO PONTO</span>
+            </a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="html/admin.html">Administração</a></li>
+                <li><a href="html/login.html">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero-text">
+            <h1>AERO PONTO</h1>
+            <p>O ponto de partida para o seu destino dos sonhos.</p>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Para onde você quer viajar?" onkeyup="filtrarCidades()">
+            <button class="btn-search">Buscar</button>
+        </div>
+    </main>
+
+    <div class="main" id="vitrine-viagens"></div>
+
+    <script src="/js/mobile-navbar.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
