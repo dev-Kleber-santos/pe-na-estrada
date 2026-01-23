@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - ADM Viagens</title>
+    <link rel="stylesheet" href="../css/pay.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="checkout-container">
+    <div class="payment-selection">
+        <h4>Selecione a forma de pagamento</h4>
+        <div class="methods-grid">
+            <label class="method-item">
+                <input type="radio" name="payment-type" value="pix" onclick="changeTab('pix')">
+                <div class="method-btn">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>Pix</span>
+                </div>
+            </label>
+            <label class="method-item">
+                <input type="radio" name="payment-type" value="card" onclick="changeTab('card')" checked>
+                <div class="method-btn">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Cartão</span>
+                </div>
+            </label>
+            <label class="method-item">
+                <input type="radio" name="payment-type" value="boleto" onclick="changeTab('boleto')">
+                <div class="method-btn">
+                    <i class="fa-solid fa-barcode"></i>
+                    <span>Boleto</span>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <div id="card-area">
+        <div class="card-credit">
+            <div id="card-inner-credit">
+                <div class="card-front-credit">
+                    <div class="card-reflection"></div>
+                    <div class="card-header-real">
+                        <span class="bank-name">ADM - BANK</span>
+                        <div id="card-brand" class="brand-logo">VISA</div>
+                    </div>
+                    <div class="chip-container">
+                        <div class="chip"></div>
+                        <div class="contactless"><i class="fa-solid fa-wifi"></i></div>
+                    </div>
+                    <div class="number-display" id="display-number">#### #### #### ####</div>
+                    <div class="card-footer-real">
+                        <div class="info-box">
+                            <span class="label">NOME DO TITULAR</span>
+                            <div id="display-name" class="value">NOME NO CARTÃO</div>
+                        </div>
+                        <div class="info-box">
+                            <span class="label">VALIDADE</span>
+                            <div id="display-expiry" class="value">MM/AA</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-back-credit">
+                    <div class="magnetic-stripe"></div>
+                    <div class="signature-area">
+                        <div class="cvv-display">
+                            <span class="label" style="color: #000; font-size: 9px;">CVV</span>
+                            <div id="display-cvv" class="cvv-value">***</div>
+                        </div>
+                    </div>
+                    <div class="hologram"></div>
+                    <p class="disclaimer">Representação visual para fins de teste.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-form">
+            <input type="text" id="input-number" placeholder="Número do Cartão" maxlength="19">
+            <input type="text" id="input-name" placeholder="Nome Impresso no Cartão">
+            <div class="row">
+                <input type="text" id="input-expiry" placeholder="MM/AA" maxlength="5">
+                <input type="text" id="input-cvv" placeholder="CVV" maxlength="3">
+            </div>
+            <button class="btn-finish">Finalizar Pagamento</button>
+        </div>
+    </div>
+
+    <div id="pix-content" style="display:none;" class="simple-msg">
+        <p>O QR Code será gerado na próxima tela.</p>
+    </div>
+    <div id="boleto-content" style="display:none;" class="simple-msg">
+        <p>O boleto será enviado para o seu e-mail.</p>
+    </div>
+</div>
+
+<script src="../js/pay.js"></script>
+</body>
+</html>

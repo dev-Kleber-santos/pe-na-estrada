@@ -1,0 +1,210 @@
+/* Container Principal */
+.card-credit {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    margin: 30px auto;
+}
+
+#card-inner-credit {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.card-front-credit, .card-back-credit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    background: linear-gradient(135deg, #121212 0%, #2c3e50 100%); /* Cor Premium Black */
+    overflow: hidden;
+}
+
+/* Efeito de Reflexo */
+.card-reflection {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
+}
+
+/* Detalhes Técnicos */
+.chip {
+    width: 45px;
+    height: 35px;
+    background: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
+    border-radius: 6px;
+    position: relative;
+}
+
+.contactless {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.5);
+    margin-left: 10px;
+}
+
+.chip-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Tipografia Estilo Cartão */
+.number-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin: 25px 0;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+}
+
+.bank-name { font-weight: bold; letter-spacing: 2px; }
+
+.label { font-size: 9px; color: rgba(255,255,255,0.6); display: block; margin-bottom: 2px; }
+
+.value { font-size: 14px; font-weight: bold; text-transform: uppercase; }
+
+.card-footer-real { display: flex; gap: 30px; }
+
+/* VERSO */
+.card-back-credit { transform: rotateY(180deg); padding: 0; background: #222; }
+
+.magnetic-stripe {
+    background: #000;
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+}
+
+.signature-area {
+    background: #fff;
+    width: 80%;
+    height: 35px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.cvv-value { color: #000; font-style: italic; font-weight: bold; }
+
+.hologram {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #7f8c8d, #bdc3c7);
+    border-radius: 50%;
+    margin-left: 20px;
+    opacity: 0.5;
+}
+
+.checkout-container {
+    max-width: 450px;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.method-item input { display: none; }
+
+.method-btn {
+    background: #23232e;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.method-item input:checked + .method-btn {
+    border-color: #6064b6;
+    background: #2a2a3a;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #23232e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-form input {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.card-form .row { display: flex; gap: 10px; }
+
+.btn-finish {
+    background: #28a745;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.simple-msg { color: white; text-align: center; padding: 20px; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+body { background-color: #1a1a1e; display: flex; justify-content: center; padding: 20px; }
+
+.checkout-container { width: 100%; max-width: 400px; }
+
+/* Seleção de Métodos */
+.payment-selection h4 { color: white; margin-bottom: 15px; text-align: center; }
+.methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.method-item input { display: none; }
+.method-btn { background: #23232e; color: white; padding: 15px; border-radius: 10px; text-align: center; cursor: pointer; border: 2px solid transparent; transition: 0.3s; }
+.method-btn i { display: block; font-size: 1.2rem; margin-bottom: 5px; }
+.method-item input:checked + .method-btn { border-color: #6064b6; background: #2a2a3a; }
+
+/* Cartão Crédito */
+.card-credit { width: 100%; height: 210px; perspective: 1000px; margin-bottom: 30px; }
+#card-inner-credit { width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
+.card-front-credit, .card-back-credit { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; padding: 20px; color: white; overflow: hidden; }
+.card-front-credit { background: linear-gradient(135deg, #121212 0%, #2c3e50 100%); }
+.card-back-credit { background: #222; transform: rotateY(180deg); padding: 0; }
+
+/* Detalhes do Cartão */
+.card-header-real { display: flex; justify-content: space-between; align-items: center; }
+.chip { width: 40px; height: 30px; background: linear-gradient(135deg, #d4af37, #f1c40f); border-radius: 4px; }
+.chip-container { display: flex; align-items: center; margin: 15px 0; gap: 10px; color: rgba(255,255,255,0.4); }
+.number-display { font-family: 'Courier New', monospace; font-size: 1.2rem; letter-spacing: 3px; margin: 15px 0; text-shadow: 2px 2px 2px #000; }
+.card-footer-real { display: flex; gap: 20px; }
+.label { font-size: 8px; color: #aaa; display: block; }
+.value { font-size: 13px; font-weight: bold; text-transform: uppercase; }
+
+/* Verso */
+.magnetic-stripe { background: #000; width: 100%; height: 40px; margin-top: 20px; }
+.signature-area { background: #eee; width: 80%; height: 35px; margin: 20px auto; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; }
+.cvv-value { color: #000; font-style: italic; font-weight: bold; }
+.disclaimer { font-size: 8px; color: #555; padding: 10px; text-align: center; }
+
+/* Formulário */
+.card-form { background: #23232e; padding: 20px; border-radius: 10px; display: flex; flex-direction: column; gap: 10px; }
+.card-form input { padding: 12px; border: none; border-radius: 5px; font-size: 16px; width: 100%; }
+.card-form .row { display: flex; gap: 10px; }
+.btn-finish { background: #28a745; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+.simple-msg { color: white; text-align: center; padding: 40px; }

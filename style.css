@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .logo {
@@ -35,7 +35,7 @@
 
 /* Barra de navegação */
 a {
-    color: rgb(38, 90, 126);
+    color: rgb(39, 91, 128);
     text-decoration: none;
 }
 
@@ -222,6 +222,85 @@ span {
 
 }
 
+footer {
+    background-color: #1a1a1e; /* Tom quase preto para dar elegância */
+    color: white;
+    padding: 40px 20px 10px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3.logo {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.footer-section h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: rgb(38, 90, 126); /* Azul do seu tema para os títulos */
+}
+
+.footer-section p {
+    font-size: 14px;
+    color: #ccc;
+    text-align: left; /* Alinhado à esquerda no rodapé */
+    padding: 5px 0;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 12px;
+    color: #777;
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-section p {
+        text-align: center;
+    }
+}
+
 /* Interação ao menu */
 
 .mobile-menu div {
@@ -397,6 +476,44 @@ span {
 }
 
 .nav-list li:last-child a:hover {
-    background-color: #2c3e50;
+    background-color: #1a1a1e !important; /* O !important garante que vença o conflito */
+    color: #ffffff !important;
     opacity: 1;
+    transition: 0.3s;
+}
+
+.cart-nav {
+    position: relative;
+    margin: 0 15px;
+}
+
+* Localize e substitua o bloco .cart-nav a */
+.cart-nav a {
+    font-size: 24px;
+    color: #1a1a1e; /* Cor quase preta para contraste total */
+    transition: 0.3s;
+}
+
+.cart-nav a:hover {
+    color: #4f7397; /* Um azul sutil apenas no hover */
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #28a745;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.checkout-main {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }

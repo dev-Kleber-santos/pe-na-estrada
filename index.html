@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AERO PONTO</title>
     <link rel="stylesheet" href="style.css">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo-2.png?v=1" >
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo-2.png?v=1">
     <link rel="apple-touch-icon" href="assets/logo-2.png?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -31,6 +33,12 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="html/admin.html">Administração</a></li>
                 <li><a href="html/login.html">Entrar</a></li>
+                <div class="cart-nav">
+                    <a href="html/pay.html">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </div>
             </ul>
         </nav>
     </header>
@@ -48,8 +56,38 @@
 
     <div class="main" id="vitrine-viagens"></div>
 
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="logo">ADM - VIAGENS</h3>
+                <p>Sua próxima aventura começa aqui. Realizando sonhos com segurança e conforto.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/index.html">Destinos</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: contato@admviagens.com</p>
+                <p>WhatsApp: (11) 99999-9999</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 ADM Viagens - Todos os direitos reservados.
+        </div>
+    </footer>
+
     <script src="js/mobile-navbar.js"></script>
     <script src="script.js"></script>
+
+
 </body>
 
 </html>

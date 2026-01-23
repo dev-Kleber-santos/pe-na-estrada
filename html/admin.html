@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo</title>
     <link rel="stylesheet" href="../css/adm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,21 +18,34 @@
         </nav>
     </header>
 
-    <div class="admin-form">
-        <h2>Cadastrar Novo Destino</h2>
-        <input type="text" id="cidade" placeholder="Cidade (Ex: Rio de Janeiro)">
-        <textarea id="info" placeholder="Datas e Informações (Use Enter para quebrar linhas)"></textarea>
-        <input type="text" id="valor" placeholder="Valor (Ex: 379,99)">
-        <label for="inputArquivo">Foto do Destino:</label>
-        <input type="file" id="imagem" accept="image/*">
-        <button class="btn-salvar" onclick="salvarViagem()">Publicar no Site</button>
-        <p><a href="../index.html" style="color: #949191;">← Voltar para a Home</a></p>
-    </div>
+    <main>
+        <div class="admin-form">
+            <h2>Cadastrar Novo Destino</h2>
+            
+            <input type="text" id="cidade" placeholder="Cidade (Ex: Rio de Janeiro)">
+            
+            <label class="label-data" for="data-viagem">Data da Viagem:</label>
+            <input type="date" id="data-viagem">
 
-    <div class="admin-form" style="margin-top: 20px;">
-        <h2>Gerenciar Viagens</h2>
-        <div id="lista-gerenciamento"></div>
-    </div>
+            <textarea id="info" placeholder="Informações Adicionais (Ex: Hotel incluso, café da manhã)"></textarea>
+            
+            <input type="text" id="valor" placeholder="Valor (Ex: 379,99)">
+            
+            <label for="imagem">Foto do Destino:</label>
+            <input type="file" id="imagem" accept="image/*">
+            
+            <button class="btn-salvar" onclick="salvarViagem()">Publicar no Site</button>
+            
+            <div class="container-voltar">
+                <a href="../index.html" class="link-voltar">← Voltar para a Home</a>
+            </div>
+        </div>
+
+        <div class="admin-form form-gerenciar">
+            <h2>Gerenciar Viagens</h2>
+            <div id="lista-gerenciamento"></div>
+        </div>
+    </main>
 
     <script src="../js/admin.js"></script>
 </body>
