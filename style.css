@@ -331,7 +331,7 @@ footer {
         position: fixed;
         top: 10vh;
         right: 0;
-        width:  35vw;
+        width:  60vw;
         height: 100vh;
         background:rgba(34, 38, 43, 0.85);
         backdrop-filter: blur(5px);
