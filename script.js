@@ -26,13 +26,12 @@ class Viagem {
                         <button class="btn" onclick="toggleFlip(this)">Mais Informações</button>
                     </div>
                     <div class="card-back">
-                        <h1>${this.cidade}</h1>
                         <p><strong>Partida prevista:</strong> ${dataFormatada}</p>
                         <p>Conheça as maravilhas de ${this.cidade}. Reserve agora e garanta sua vaga!</p>
                         
                         <button class="btn-reservar" onclick='adicionarAoCarrinho(${dadosSimples})'>
                             <i class="fa-solid fa- suitcase-rolling"></i> Reservar Passagem
-                        </button>
+                        </button> <br/>
 
                         <button class="btn" style="margin-top: 10px; background: #555;" onclick="toggleFlip(this)">Voltar</button>
                     </div>

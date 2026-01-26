@@ -430,6 +430,7 @@ footer {
     transform: rotateY(180deg);
     justify-content: center;
     padding: 20px;
+    height: 115%;
 }
 
 @media (max-width: 600px) {
