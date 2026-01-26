@@ -7,7 +7,7 @@
 }
 
 body {
-    overflow-x: hidden; 
+    overflow-x: hidden;
     width: 100%;
     background-color: #1a1a1e;
     font-family: 'Montserrat', sans-serif;
@@ -42,7 +42,7 @@ body {
 
 .admin-form input,
 .admin-form textarea {
-    width: 100%; 
+    width: 100%;
     padding: 12px;
     margin: 10px 0;
     border-radius: 5px;
@@ -87,3 +87,42 @@ body {
     }
 }
 
+/* Estilo Base do Botão Flutuante */
+.whatsapp-flutuante {
+    position: fixed;
+    width: 65px;
+    height: 65px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    text-decoration: none;
+    z-index: 9999;
+
+    /* Box Shadow - Sombra para dar profundidade */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+
+    /* Transição suave para o hover */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeito Hover (Ao passar o mouse) */
+.whatsapp-flutuante:hover {
+    background-color: #128c7e;
+    /* Verde um pouco mais escuro */
+    transform: scale(1.1) rotate(10deg);
+    /* Aumenta e gira levemente */
+
+    /* Box Shadow mais forte no hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de Clique */
+.whatsapp-flutuante:active {
+    transform: scale(0.9);
+}

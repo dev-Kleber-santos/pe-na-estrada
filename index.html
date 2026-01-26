@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo-2.png?v=1">
-    <link rel="apple-touch-icon" href="assets/logo-2.png?v=1">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo (2).png">
+    <link rel="apple-touch-icon" href="../assets/logo (2).png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -50,12 +50,11 @@
         </div>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Para onde você quer viajar?" onkeyup="filtrarCidades()">
-            <button class="btn-search">Buscar</button>
+            <button class="btn-search" onclick="filtrarCidades()">Buscar</button>
         </div>
     </main>
 
     <div class="main" id="vitrine-viagens"></div>
-
 
     <footer>
         <div class="footer-content">
@@ -67,8 +66,8 @@
             <div class="footer-section">
                 <h4>Links Rápidos</h4>
                 <ul>
-                    <li><a href="/index.html">Inicio</a></li>
-                    <li><a href="/index.html">Destinos</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#vitrine-viagens">Destinos</a></li>
                     <li><a href="#">Termos de Uso</a></li>
                 </ul>
             </div>
@@ -83,11 +82,12 @@
             &copy; 2026 ADM Viagens - Todos os direitos reservados.
         </div>
     </footer>
+    <a href="https://wa.me/5511999999999" class="whatsapp-flutuante" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <script src="js/mobile-navbar.js"></script>
     <script src="script.js"></script>
-
-
 </body>
 
 </html>

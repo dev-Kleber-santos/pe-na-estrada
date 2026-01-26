@@ -1,5 +1,3 @@
-// Função auxiliar para converter o arquivo do PC em uma string (Base64)
-// Isso permite que o localStorage salve a imagem real
 function converterParaBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -9,45 +7,84 @@ function converterParaBase64(file) {
     });
 }
 
-// Função para salvar ou atualizar - AGORA É ASYNC
 async function salvarViagem() {
-    const cidade = document.getElementById('cidade').value;
-    const info = document.getElementById('info').value;
-    const valor = document.getElementById('valor').value;
-    const inputImagem = document.getElementById('imagem'); // Referência ao input de arquivo
-    const editIndex = document.getElementById('cidade').dataset.editIndex;
+    try {
+        const campoCidade = document.getElementById('cidade');
+        const campoInfo = document.getElementById('info');
+        const campoValor = document.getElementById('valor');
+        const campoData = document.getElementById('data-viagem');
+        const campoImagem = document.getElementById('imagem');
 
-    let imagemFinal = "";
+        const editIndex = campoCidade.dataset.editIndex;
 
-    // 1. Lógica para tratar a imagem
-    if (inputImagem.files && inputImagem.files[0]) {
-        // Se o usuário selecionou um NOVO arquivo do PC
-        imagemFinal = await converterParaBase64(inputImagem.files[0]);
-    } else if (editIndex !== undefined) {
-        // Se estiver editando e não subiu foto nova, mantém a que já existia no banco
-        const bancoAntigo = JSON.parse(localStorage.getItem('viagens_db'));
-        imagemFinal = bancoAntigo[editIndex].imagem;
+        if (!campoCidade || !campoData || !campoValor) {
+            console.error("Erro: Um ou mais campos não encontrados.");
+            return;
+        }
+
+        let imagemFinal = "";
+
+        if (campoImagem.files && campoImagem.files[0]) {
+            imagemFinal = await converterParaBase64(campoImagem.files[0]);
+        } else if (editIndex !== undefined) {
+            const banco = JSON.parse(localStorage.getItem('viagens_db'));
+            imagemFinal = banco[editIndex].imagem;
+        }
+
+        if (!campoCidade.value || !campoValor.value || !campoData.value || !imagemFinal) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
+        const novaViagem = {
+            cidade: campoCidade.value,
+            info: campoInfo.value,
+            valor: campoValor.value,
+            data: campoData.value,
+            imagem: imagemFinal
+        };
+
+        let banco = JSON.parse(localStorage.getItem('viagens_db')) || [];
+
+        if (editIndex !== undefined) {
+            banco[editIndex] = novaViagem;
+            delete campoCidade.dataset.editIndex;
+        } else {
+            banco.push(novaViagem);
+        }
+
+        localStorage.setItem('viagens_db', JSON.stringify(banco));
+        alert("Viagem salva com sucesso!");
+        location.reload();
+
+    } catch (erro) {
+        console.error("Erro ao salvar:", erro);
     }
-
-    if (!cidade || !valor || !imagemFinal) return alert("Preencha os campos e selecione uma imagem!");
-
-    let banco = JSON.parse(localStorage.getItem('viagens_db')) || [];
-
-    const dadosViagem = { cidade, info, valor, imagem: imagemFinal };
-
-    if (editIndex !== undefined) {
-        banco[editIndex] = dadosViagem; // Atualiza o existente
-        delete document.getElementById('cidade').dataset.editIndex;
-    } else {
-        banco.push(dadosViagem); // Adiciona novo
-    }
-    
-    localStorage.setItem('viagens_db', JSON.stringify(banco));
-    alert("Operação realizada!");
-    location.reload();
 }
 
-// Função para carregar dados no formulário para editar
+function renderizarAdmin() {
+    const lista = document.getElementById('lista-gerenciamento');
+    if (!lista) return;
+
+    const banco = JSON.parse(localStorage.getItem('viagens_db')) || [];
+    
+    lista.innerHTML = banco.map((v, i) => `
+        <div style="background: #343444; padding: 15px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; color: white; border: 1px solid #444;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="${v.imagem}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                <div>
+                    <strong>${v.cidade}</strong>
+                    <br><small style="color: #bbb;">Data: ${v.data ? v.data.split('-').reverse().join('/') : '---'}</small>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="prepararEdicao(${i})" style="background: #ffa500; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px;">Editar</button>
+                <button onclick="excluirViagem(${i})" style="background: #ff4d4d; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px;">Excluir</button>
+            </div>
+        </div>
+    `).join('');
+}
+
 function prepararEdicao(index) {
     const banco = JSON.parse(localStorage.getItem('viagens_db'));
     const v = banco[index];
@@ -55,40 +92,19 @@ function prepararEdicao(index) {
     document.getElementById('cidade').value = v.cidade;
     document.getElementById('info').value = v.info;
     document.getElementById('valor').value = v.valor;
-    // Nota: Por segurança, o navegador não permite "preencher" um input de arquivo com um caminho.
-    // O usuário verá o nome do arquivo vazio, mas o código acima garante que a foto antiga não se perca.
+    document.getElementById('data-viagem').value = v.data;
     
     document.getElementById('cidade').dataset.editIndex = index;
-    window.scrollTo(0, 0); 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Função para excluir
 function excluirViagem(index) {
-    if (confirm("Deseja realmente excluir esta viagem?")) {
+    if (confirm("Excluir esta viagem?")) {
         let banco = JSON.parse(localStorage.getItem('viagens_db'));
         banco.splice(index, 1);
         localStorage.setItem('viagens_db', JSON.stringify(banco));
         renderizarAdmin();
     }
-}
-
-// Mostra a lista de viagens no painel admin
-function renderizarAdmin() {
-    const lista = document.getElementById('lista-gerenciamento');
-    const banco = JSON.parse(localStorage.getItem('viagens_db')) || [];
-    
-    lista.innerHTML = banco.map((v, i) => `
-        <div style="background: #343444; padding: 10px; margin-bottom: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; color: white;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="${v.imagem}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
-                <span>${v.cidade}</span>
-            </div>
-            <div>
-                <button onclick="prepararEdicao(${i})" style="background: orange; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">Editar</button>
-                <button onclick="excluirViagem(${i})" style="background: red; border: none; padding: 5px 10px; cursor: pointer; color: white; border-radius: 3px;">Excluir</button>
-            </div>
-        </div>
-    `).join('');
 }
 
 window.onload = renderizarAdmin;

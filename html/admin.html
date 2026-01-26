@@ -21,21 +21,21 @@
     <main>
         <div class="admin-form">
             <h2>Cadastrar Novo Destino</h2>
-            
+
             <input type="text" id="cidade" placeholder="Cidade (Ex: Rio de Janeiro)">
-            
+
             <label class="label-data" for="data-viagem">Data da Viagem:</label>
             <input type="date" id="data-viagem">
 
             <textarea id="info" placeholder="Informações Adicionais (Ex: Hotel incluso, café da manhã)"></textarea>
-            
+
             <input type="text" id="valor" placeholder="Valor (Ex: 379,99)">
-            
+
             <label for="imagem">Foto do Destino:</label>
             <input type="file" id="imagem" accept="image/*">
-            
+
             <button class="btn-salvar" onclick="salvarViagem()">Publicar no Site</button>
-            
+
             <div class="container-voltar">
                 <a href="../index.html" class="link-voltar">← Voltar para a Home</a>
             </div>
@@ -46,6 +46,10 @@
             <div id="lista-gerenciamento"></div>
         </div>
     </main>
+
+    <a href="https://wa.me/5511999999999" class="whatsapp-flutuante" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <script src="../js/admin.js"></script>
 </body>

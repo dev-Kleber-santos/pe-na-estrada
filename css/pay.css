@@ -6,6 +6,17 @@
     margin: 30px auto;
 }
 
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.brand-logo i {
+    font-size: 1.5rem;
+}
+
 #card-inner-credit {
     width: 100%;
     height: 100%;
@@ -208,3 +219,38 @@ body { background-color: #1a1a1e; display: flex; justify-content: center; paddin
 .card-form .row { display: flex; gap: 10px; }
 .btn-finish { background: #28a745; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px; }
 .simple-msg { color: white; text-align: center; padding: 40px; }
+
+/* Estilo do Botão Flutuante do WhatsApp */
+.whatsapp-flutuante {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    z-index: 1000;
+    
+    /* Box Shadow - Dá profundidade ao botão */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    
+    /* Transição suave para todas as propriedades */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeito Hover - O que acontece ao passar o mouse */
+.whatsapp-flutuante:hover {
+    background-color: #128c7e;
+    transform: scale(1.1) rotate(10deg); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-flutuante:active {
+    transform: scale(0.9);
+}
