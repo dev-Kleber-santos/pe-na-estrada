@@ -14,35 +14,35 @@ class Viagem {
         return `
             <div class="card">
                 <div class="card-inner">
-                    <div class="card-front">
+                    <div class="card-front" style="display: flex; flex-direction: column; height: 100%;">
                         <img src="${this.imagem}" alt="${this.cidade}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'">
                         
-                        <div class="card-content">
-                            <h1>${this.cidade}</h1>
-                            <p class="card-date">📅 ${dataFormatada}</p>
-                            <p class="card-info">${this.info}</p>
+                        <div style="padding: 10px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; align-items: center;">
+                            <h1 style="font-size: 1.2rem; margin: 0;">${this.cidade}</h1>
+                            <p style="font-weight: bold; color: #ff4d4d; margin: 5px 0; font-size: 0.9rem; padding:0;">📅 ${dataFormatada}</p>
+                            <p style="font-size: 0.8rem; margin: 0; line-height: 1.2; padding: 5px;">${this.info}</p>
                             
-                            <div class="card-price-container">
-                                <span>Preço</span>
-                                <strong class="card-price">R$ ${this.valor}</strong>
+                            <div class="preco" style="margin: 5px 0;">
+                                <span style="display:block; font-size: 10px; text-transform: uppercase;">Preço</span>
+                                <strong style="font-size: 1.1rem;">R$ ${this.valor}</strong>
                             </div>
                             
-                            <button class="btn btn-full" onclick="toggleFlip(this)">Mais Informações</button>
+                            <button class="btn" style="width: 90%; padding: 8px 0;" onclick="toggleFlip(this)">Mais Informações</button>
                         </div>
                     </div>
 
-                    <div class="card-back">
-                        <div class="card-content-back">
-                            <h3>Detalhes do Pacote</h3>
-                            <p><strong>Partida:</strong> ${dataFormatada}</p>
-                            <p>Aproveite o melhor de ${this.cidade} com suporte e conforto.</p>
+                    <div class="card-back" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; padding: 20px; box-sizing: border-box;">
+                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                            <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Detalhes do Pacote</h3>
+                            <p style="font-size: 0.85rem; padding: 5px;"><strong>Partida:</strong> ${dataFormatada}</p>
+                            <p style="font-size: 0.85rem; padding: 5px;">Aproveite o melhor de ${this.cidade}. Suporte 24h e guia turístico incluso.</p>
                         </div>
                         
-                        <div class="card-actions-back">
-                            <button class="btn-reservar" onclick='adicionarAoCarrinho(${dadosSimples})'>
+                        <div style="width: 100%;">
+                            <button class="btn-reservar" style="width: 100%; margin-bottom: 10px;" onclick='adicionarAoCarrinho(${dadosSimples})'>
                                 <i class="fa-solid fa-suitcase-rolling"></i> Reservar
                             </button>
-                            <button class="btn btn-back-toggle" onclick="toggleFlip(this)">Voltar</button>
+                            <button class="btn" style="width: 100%; background: #555; padding: 8px 0;" onclick="toggleFlip(this)">Voltar</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ function verificarDadosIniciais() {
 // --- LOGICA DE RENDERIZAÇÃO E CARRINHO ---
 
 function carregarViagens() {
-    const vitrine = document.getElementById('vitrine-viagens'); // Verifique se o ID no HTML é este
+    const vitrine = document.getElementById('vitrine-viagens'); 
     if (!vitrine) return;
 
     const dados = JSON.parse(localStorage.getItem('viagens_db')) || [];

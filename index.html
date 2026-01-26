@@ -26,26 +26,29 @@
         </div>
     </div>
     <header>
-        <nav>
+        <nav role="navigation" aria-label="Menu principal">
             <a class="logo" href="index.html">
-                <img src="assets/logo.png" alt="Logo" class="logo-img">
+                <img src="assets/logo.png" alt="Logo Aero Ponto" class="logo-img">
                 <span>AERO PONTO</span>
             </a>
-            <div class="mobile-menu">
+
+            <div class="mobile-menu" onclick="toggleMenu()">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
             </div>
+
             <ul class="nav-list">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html">Início</a></li>
                 <li><a href="html/admin.html">Administração</a></li>
                 <li><a href="html/login.html">Entrar</a></li>
-                <div class="cart-nav">
+
+                <li class="cart-nav">
                     <a href="html/pay.html">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span id="cart-count">0</span>
                     </a>
-                </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -56,7 +59,8 @@
             <p>O ponto de partida para o seu destino dos sonhos.</p>
         </div>
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Para onde você quer viajar?" onkeyup="filtrarCidades()">
+            <input type="text" id="searchInput" aria-label="Pesquisar destinos de viagem"
+                placeholder="Para onde você quer viajar?" onkeyup="filtrarCidades()">
             <button class="btn-search" onclick="filtrarCidades()">Buscar</button>
         </div>
     </main>
@@ -93,11 +97,11 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    
+
 
     <script src="js/mobile-navbar.js"></script>
     <script src="script.js"></script>
-    
+
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
