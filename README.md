@@ -1,37 +1,17 @@
-# ✈️ Aero Ponto - Gestão de Viagens (Em Desenvolvimento)
+# Pé na Estrada - Gestão de Viagens
 
-O **Aero Ponto** é uma plataforma para exploração e gerenciamento de destinos turísticos. O projeto está sendo construído com foco em design responsivo e manipulação dinâmica de dados.
+O **Pé na Estrada** é uma plataforma robusta para exploração e gerenciamento de destinos turísticos. O projeto foca em design responsivo e manipulação dinâmica de dados, utilizando autenticação via Google para garantir uma experiência de acesso fluida e segura para o usuário..
 
-🔗 **[Acesse o projeto online aqui](https://dev-kleber-santos.github.io/aero-ponto/)**
+🔗 **[Acesse o projeto online aqui](https://dev-kleber-santos.github.io/pe-na-estrada/)**
 
 ---
-
-## 🛠️ Status do Projeto
-🚀 Em desenvolvimento / Adicionando novas funcionalidades.
-
-## 🚀 Funcionalidades Atuais
+## Funcionalidades Atuais
 - **Vitrine Interativa:** Cards com efeito *Flip* para detalhes de viagens.
 - **Menu Mobile:** Sistema de navegação lateral responsivo.
 - **Filtro de Busca:** Pesquisa dinâmica por destinos via JavaScript.
+- **Login com Google:** Integração direta para acesso rápido com um clique.
 
-## 📅 Próximas Implementações (To-Do)
-- [ ] Validação de formulários de Login e Cadastro.
-- [ ] Integração com LocalStorage para persistência de destinos cadastrados.
-- [ ] Implementação de efeitos de Scroll Suave.
-- [ ] Melhorias na acessibilidade (Tags ARIA).
-
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 - HTML5, CSS3 e JavaScript (ES6+).
-## 📸 Demonstração do Projeto
-
-### Home Page
-![Página Inicial do Aero Ponto](assets/print-home.png)
-
-### Painel Administrativo
-![Painel de Administração](assets/print-adm.png)
-
-### Login
-![Login](assets/print-login.png)
-
----
-Desenvolvido por [Kleber Mendonça] - 2026
+- Google Auth (OAuth2): Autenticação segura de usuários.
+Desenvolvido por [Kleber Santos] - 2026
