@@ -51,23 +51,27 @@ class Viagem {
     }
 }
 
-let swiper;
+// Variável global para a instância do Swiper
+let swiperInstance;
 
 function initSwiper() {
-    swiper = new Swiper(".mySwiper", {
-        slidesPerView: "auto", 
-        spaceBetween: 20,
-        centeredSlides: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {
-            1000: {
-                enabled: false, 
+    // Inicializa o Swiper apenas se houver o container na página
+    if (document.querySelector(".mySwiper")) {
+        swiperInstance = new Swiper(".mySwiper", {
+            slidesPerView: "auto", 
+            spaceBetween: 20,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             },
-        },
-    });
+            breakpoints: {
+                1000: {
+                    enabled: false, 
+                },
+            },
+        });
+    }
 }
 
 function verificarDadosIniciais() {
@@ -111,7 +115,11 @@ function carregarViagens() {
     }).join('');
 
     atualizarContadorCarrinho();
-    if(swiper) swiper.update();
+    
+    // Atualiza a instância do Swiper após injetar novos cards
+    if (swiperInstance) {
+        swiperInstance.update();
+    }
 }
 
 function adicionarAoCarrinho(item) {
@@ -149,11 +157,15 @@ function filtrarCidades() {
         return v.renderizar();
     }).join('');
 
-    if(swiper) swiper.update();
+    // Garante que o carrossel se ajuste aos itens filtrados
+    if (swiperInstance) {
+        swiperInstance.update();
+    }
 }
 
+// Inicialização unificada
 window.onload = () => {
     verificarDadosIniciais();
-    initSwiper();
-    carregarViagens();
+    initSwiper(); // Inicia o motor do carrossel primeiro
+    carregarViagens(); // Carrega e atualiza os itens
 };

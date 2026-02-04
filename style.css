@@ -457,10 +457,9 @@ footer {
     }
 
     .btn {
-        font-size: 11px;
-        padding: 8px 0;
-        width: 95%;
-        margin-bottom: 0px;
+        font-size: 11px; 
+        padding: 8px;
+        width: 90%;
     }
 
     .card-price-container {
@@ -583,11 +582,7 @@ body.dark-mode .acessibilidade-menu button {
     border-color: #555;
 }
 
-/* --- INTEGRAÇÃO SWIPER (MANTENDO SEU DESIGN) --- */
 
-/* --- INTEGRAÇÃO SWIPER --- */
-
-/* Tamanho padrão (Desktop) */
 .card.swiper-slide {
     width: 260px !important;
     height: 460px !important;
@@ -616,8 +611,8 @@ body.dark-mode .acessibilidade-menu button {
 
 @media (max-width: 450px) {
     .card.swiper-slide {
-        width: 200px !important; /* Um pouco mais estreito */
-        height: 400px !important; /* Menor para a imagem aparecer */
+        width: 200px !important;
+        height: 400px !important;
     }
 
     /* Forçando a imagem a aparecer com um tamanho bom */

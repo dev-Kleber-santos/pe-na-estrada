@@ -1,8 +1,27 @@
+// Nova função com compressão para evitar erros no celular
 function converterParaBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
+        reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 800; // Redimensiona para no máximo 800px de largura
+                const scaleSize = MAX_WIDTH / img.width;
+                
+                canvas.width = MAX_WIDTH;
+                canvas.height = img.height * scaleSize;
+
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                // Exporta como JPEG com 70% de qualidade (fica leve e nítido para o site)
+                const base64Comprimido = canvas.toDataURL('image/jpeg', 0.7);
+                resolve(base64Comprimido);
+            };
+        };
         reader.onerror = error => reject(error);
     });
 }
@@ -24,15 +43,16 @@ async function salvarViagem() {
 
         let imagemFinal = "";
 
+        // Se houver arquivo selecionado, comprime. Se não, tenta manter a anterior (caso edição)
         if (campoImagem.files && campoImagem.files[0]) {
             imagemFinal = await converterParaBase64(campoImagem.files[0]);
         } else if (editIndex !== undefined) {
-            const banco = JSON.parse(localStorage.getItem('viagens_db'));
+            const banco = JSON.parse(localStorage.getItem('viagens_db')) || [];
             imagemFinal = banco[editIndex].imagem;
         }
 
         if (!campoCidade.value || !campoValor.value || !campoData.value || !imagemFinal) {
-            alert("Por favor, preencha todos os campos.");
+            alert("Por favor, preencha todos os campos e selecione uma imagem.");
             return;
         }
 
@@ -53,9 +73,14 @@ async function salvarViagem() {
             banco.push(novaViagem);
         }
 
-        localStorage.setItem('viagens_db', JSON.stringify(banco));
-        alert("Viagem salva com sucesso!");
-        location.reload();
+        // Tenta salvar e trata o erro de memória cheia
+        try {
+            localStorage.setItem('viagens_db', JSON.stringify(banco));
+            alert("Viagem salva com sucesso!");
+            location.reload();
+        } catch (e) {
+            alert("Erro: A memória do navegador está cheia. Tente usar uma foto menor ou excluir viagens antigas.");
+        }
 
     } catch (erro) {
         console.error("Erro ao salvar:", erro);
