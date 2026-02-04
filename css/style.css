@@ -26,7 +26,7 @@ body {
 .content::before {
     content: "";
     position: absolute;
-    background-color: rgb(38, 90, 126);
+    background-color: rgb(163, 150, 129);
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -44,7 +44,7 @@ body {
     color: #fff;
 }
 .title-second {
-    color: rgb(38, 90, 126);
+    color: rgb(163, 150, 129);
 }
 .description {
     font-size: 14px;
@@ -77,17 +77,17 @@ body {
 }
 .btn-primary:hover {
     background-color: #fff;
-    color: rgb(38, 90, 126);
+    color: rgb(163, 150, 129);
 }
 .btn-second {
-    background-color: rgb(38, 90, 126);
-    border: 1px solid rgb(38, 90, 126);
+    background-color: rgb(163, 150, 129);
+    border: 1px solid rgb(163, 150, 129);
     transition: background-color .5s;
 }
 .btn-second:hover {
     background-color: #fff;
-    border: 1px solid rgb(38, 90, 126);
-    color: rgb(38, 90, 126);
+    border: 1px solid rgb(163, 150, 129);
+    color: rgb(163, 150, 129);
 }
 .first-content {
     display: flex;
@@ -116,9 +116,9 @@ body {
     transition: background-color .5s;
 }
 .link-social-media:hover .item-social-media{
-    background-color: rgb(38, 90, 126);
+    background-color: rgb(163, 150, 129);
     color: #fff;
-    border-color: rgb(38, 90, 126);
+    border-color: rgb(163, 150, 129);
 }
 .list-social-media {
     display: flex;
@@ -143,7 +143,12 @@ body {
     width: 100%;
     border: none;
     background-color: #ecf0f1;
+    border: none;
 }
+.form input:focus {
+    outline: none;
+}
+
 input:-webkit-autofill 
 {    
     -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
@@ -154,6 +159,7 @@ input:-webkit-autofill
     display: flex;
     align-items: center;
     margin: 8px;
+    border: none;
 }
 .icon-modify {
     color: #7f8c8d;

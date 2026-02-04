@@ -54,29 +54,29 @@ class Viagem {
 // --- BANCO DE DADOS INICIAL (VAI APARECER ASSIM QUE ABRIR) ---
 function verificarDadosIniciais() {
     const dados = localStorage.getItem('viagens_db');
-    
+
     if (!dados || JSON.parse(dados).length === 0) {
         const exemplos = [
             {
-                cidade: "Paris, França",
-                info: "Conheça a Torre Eiffel e os melhores museus do mundo.",
-                valor: "4.500,00",
-                imagem: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=300&q=80",
-                data: "2026-05-20"
+                cidade: "Lençóis Maranhenses, Maranhão",
+                info: "Explore as lagoas cristalinas entre dunas infinitas no coração do Nordeste.",
+                valor: "3.200,00",
+                imagem: "https://images.unsplash.com/photo-1561420052-e8a2aec15846?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                data: "2026-06-15"
             },
             {
-                cidade: "Tóquio, Japão",
-                info: "Tecnologia, cultura milenar e uma gastronomia única.",
-                valor: "6.200,00",
-                imagem: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=300&q=80",
-                data: "2026-10-12"
+                cidade: "Gramado, Rio Grande do Sul",
+                info: "O charme da Serra Gaúcha com gastronomia europeia e clima aconchegante.",
+                valor: "2.800,00",
+                imagem: "https://images.unsplash.com/photo-1690907938160-133874466bb0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                data: "2026-07-10"
             },
             {
-                cidade: "Rio de Janeiro",
-                info: "Sol, praia e a vista incrível do Cristo Redentor.",
-                valor: "1.200,00",
-                imagem: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=300&q=80",
-                data: "2026-03-15"
+                cidade: "Fernando de Noronha, Pernambuco",
+                info: "Mergulhe em um dos santuários ecológicos mais bonitos e exclusivos do mundo.",
+                valor: "5.500,00",
+                imagem: "https://images.unsplash.com/photo-1614722860207-909e0e8dfd99?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                data: "2026-09-05"
             }
         ];
         localStorage.setItem('viagens_db', JSON.stringify(exemplos));
@@ -86,7 +86,7 @@ function verificarDadosIniciais() {
 // --- LOGICA DE RENDERIZAÇÃO E CARRINHO ---
 
 function carregarViagens() {
-    const vitrine = document.getElementById('vitrine-viagens'); 
+    const vitrine = document.getElementById('vitrine-viagens');
     if (!vitrine) return;
 
     const dados = JSON.parse(localStorage.getItem('viagens_db')) || [];

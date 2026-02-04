@@ -1,20 +1,93 @@
-/* Container Principal */
-.card-credit {
-    width: 350px;
-    height: 220px;
-    perspective: 1000px;
-    margin: 30px auto;
+/* Configurações Gerais */
+* {
+    box-sizing:
+        border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.brand-logo {
+body {
+    background-color: rgb(163, 150, 129);
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.1rem;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 100px;
 }
 
-.brand-logo i {
-    font-size: 1.5rem;
+/* Layout Lado a Lado */
+.checkout-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.forms-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 320px;
+    max-width: 480px;
+}
+
+/* Resumo e Seleção */
+.resumo-compra,
+.payment-selection,
+.card-form {
+    background: #23232e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #343444;
+}
+
+.payment-selection h4,
+.resumo-compra h4 {
+    border-bottom: 1px solid #6064b6;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.method-item input {
+    display: none;
+}
+
+.method-btn {
+    background: #1a1a1e;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.method-item input:checked+.method-btn {
+    border-color: #6064b6;
+    background: #2a2a3a;
+}
+
+
+.card-credit {
+    width: 100%;
+    height: 210px;
+    perspective: 1000px;
+    margin-bottom: 20px;
 }
 
 #card-inner-credit {
@@ -23,11 +96,10 @@
     transition: transform 0.6s;
     transform-style: preserve-3d;
     position: relative;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
 
-.card-front-credit, .card-back-credit {
+.card-front-credit,
+.card-back-credit {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -35,63 +107,23 @@
     border-radius: 15px;
     padding: 25px;
     color: white;
-    background: linear-gradient(135deg, #121212 0%, #2c3e50 100%); /* Cor Premium Black */
-    overflow: hidden;
 }
 
-/* Efeito de Reflexo */
-.card-reflection {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
-    pointer-events: none;
+.card-front-credit {
+    background: linear-gradient(135deg, #121212 0%, #2c3e50 100%);
 }
 
-/* Detalhes Técnicos */
-.chip {
-    width: 45px;
-    height: 35px;
-    background: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
-    border-radius: 6px;
-    position: relative;
+.card-back-credit {
+    background: #222;
+    transform: rotateY(180deg);
+    padding: 0;
 }
 
-.contactless {
-    font-size: 1.2rem;
-    color: rgba(255,255,255,0.5);
-    margin-left: 10px;
-}
-
-.chip-container {
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-}
-
-/* Tipografia Estilo Cartão */
-.number-display {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.4rem;
-    letter-spacing: 4px;
-    margin: 25px 0;
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
-}
-
-.bank-name { font-weight: bold; letter-spacing: 2px; }
-
-.label { font-size: 9px; color: rgba(255,255,255,0.6); display: block; margin-bottom: 2px; }
-
-.value { font-size: 14px; font-weight: bold; text-transform: uppercase; }
-
-.card-footer-real { display: flex; gap: 30px; }
-
-/* VERSO */
-.card-back-credit { transform: rotateY(180deg); padding: 0; background: #222; }
 
 .magnetic-stripe {
     background: #000;
     width: 100%;
-    height: 45px;
+    height: 40px;
     margin-top: 20px;
 }
 
@@ -106,7 +138,11 @@
     padding-right: 10px;
 }
 
-.cvv-value { color: #000; font-style: italic; font-weight: bold; }
+.cvv-value {
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
 
 .hologram {
     width: 40px;
@@ -114,56 +150,23 @@
     background: linear-gradient(45deg, #7f8c8d, #bdc3c7);
     border-radius: 50%;
     margin-left: 20px;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
-.checkout-container {
-    max-width: 450px;
-    margin: auto;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.methods-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.method-item input { display: none; }
-
-.method-btn {
-    background: #23232e;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid transparent;
-}
-
-.method-item input:checked + .method-btn {
-    border-color: #6064b6;
-    background: #2a2a3a;
-}
-
-.card-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: #23232e;
-    padding: 20px;
-    border-radius: 10px;
-}
-
+/* Inputs */
 .card-form input {
     padding: 12px;
-    border-radius: 5px;
     border: none;
-    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 15px;
 }
 
-.card-form .row { display: flex; gap: 10px; }
+.row {
+    display: flex;
+    gap: 10px;
+}
 
 .btn-finish {
     background: #28a745;
@@ -173,58 +176,55 @@
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
+    width: 100%;
+    transition: 0.3s;
 }
 
-.simple-msg { color: white; text-align: center; padding: 20px; }
+.btn-finish:hover {
+    background: #218838;
+}
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
-body { background-color: #1a1a1e; display: flex; justify-content: center; padding: 20px; }
+/* Estilo do Modal de Sucesso */
+.modal-confirmacao {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
 
-.checkout-container { width: 100%; max-width: 400px; }
+.modal-content {
+    background: #23232e;
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 450px;
+    border: 1px solid #28a745;
+    animation: fadeIn 0.5s;
+}
 
-/* Seleção de Métodos */
-.payment-selection h4 { color: white; margin-bottom: 15px; text-align: center; }
-.methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-.method-item input { display: none; }
-.method-btn { background: #23232e; color: white; padding: 15px; border-radius: 10px; text-align: center; cursor: pointer; border: 2px solid transparent; transition: 0.3s; }
-.method-btn i { display: block; font-size: 1.2rem; margin-bottom: 5px; }
-.method-item input:checked + .method-btn { border-color: #6064b6; background: #2a2a3a; }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 
-/* Cartão Crédito */
-.card-credit { width: 100%; height: 210px; perspective: 1000px; margin-bottom: 30px; }
-#card-inner-credit { width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
-.card-front-credit, .card-back-credit { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; padding: 20px; color: white; overflow: hidden; }
-.card-front-credit { background: linear-gradient(135deg, #121212 0%, #2c3e50 100%); }
-.card-back-credit { background: #222; transform: rotateY(180deg); padding: 0; }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-/* Detalhes do Cartão */
-.card-header-real { display: flex; justify-content: space-between; align-items: center; }
-.chip { width: 40px; height: 30px; background: linear-gradient(135deg, #d4af37, #f1c40f); border-radius: 4px; }
-.chip-container { display: flex; align-items: center; margin: 15px 0; gap: 10px; color: rgba(255,255,255,0.4); }
-.number-display { font-family: 'Courier New', monospace; font-size: 1.2rem; letter-spacing: 3px; margin: 15px 0; text-shadow: 2px 2px 2px #000; }
-.card-footer-real { display: flex; gap: 20px; }
-.label { font-size: 8px; color: #aaa; display: block; }
-.value { font-size: 13px; font-weight: bold; text-transform: uppercase; }
-
-/* Verso */
-.magnetic-stripe { background: #000; width: 100%; height: 40px; margin-top: 20px; }
-.signature-area { background: #eee; width: 80%; height: 35px; margin: 20px auto; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; }
-.cvv-value { color: #000; font-style: italic; font-weight: bold; }
-.disclaimer { font-size: 8px; color: #555; padding: 10px; text-align: center; }
-
-/* Formulário */
-.card-form { background: #23232e; padding: 20px; border-radius: 10px; display: flex; flex-direction: column; gap: 10px; }
-.card-form input { padding: 12px; border: none; border-radius: 5px; font-size: 16px; width: 100%; }
-.card-form .row { display: flex; gap: 10px; }
-.btn-finish { background: #28a745; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-.simple-msg { color: white; text-align: center; padding: 40px; }
-
-/* Estilo do Botão Flutuante do WhatsApp */
 .whatsapp-flutuante {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     bottom: 30px;
     right: 30px;
     background-color: #25d366;
@@ -234,23 +234,67 @@ body { background-color: #1a1a1e; display: flex; justify-content: center; paddin
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    text-decoration: none;
     z-index: 1000;
-    
-    /* Box Shadow - Dá profundidade ao botão */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-decoration: none;    
+}
+
+.footer-fixo {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #23232e;
+    border-top: 2px solid #6064b6;
+    padding: 15px 20px;
+    z-index: 999;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Botão de Voltar */
+.btn-voltar-loja {
+    background-color: transparent;
+    color: #6064b6;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border: 1px solid #6064b6;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-voltar-loja:hover {
+    background-color: #6064b6;
+    color: white;
+}
+
+/* Ajuste para Mobile */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
     
-    /* Transição suave para todas as propriedades */
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Efeito Hover - O que acontece ao passar o mouse */
-.whatsapp-flutuante:hover {
-    background-color: #128c7e;
-    transform: scale(1.1) rotate(10deg); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.whatsapp-flutuante:active {
-    transform: scale(0.9);
+    body {
+        padding-bottom: 140px;
+    }
 }

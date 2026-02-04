@@ -9,15 +9,17 @@
 body {
     overflow-x: hidden;
     width: 100%;
-    background-color: #1a1a1e;
+    background-color: #ffffff;
     font-family: 'Montserrat', sans-serif;
 }
+
+
 
 .admin-form {
     width: 90%;
     max-width: 500px;
     margin: 20px auto;
-    background: #23232e;
+    background: rgb(163, 150, 129);
     padding: 20px;
     border-radius: 8px;
     color: white;
@@ -57,7 +59,7 @@ body {
 }
 
 .link-voltar {
-    color: #949191;
+    color: #131111;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s;
@@ -87,7 +89,33 @@ body {
     }
 }
 
-/* Estilo Base do Botão Flutuante */
+/* Estilo para o container e o link de voltar */
+.container-voltar {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil para separar */
+    padding-top: 15px;
+}
+
+.link-voltar {
+    display: inline-block;
+    color: rgb(163, 150, 129);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.link-voltar:hover {
+    background-color: #ffffff;
+    color: rgb(163, 150, 129); /* Cor do fundo do form */
+    transform: translateY(-2px);
+}
+
+/* Estilo Base do Botão Flutuante
 .whatsapp-flutuante {
     position: fixed;
     width: 65px;
@@ -104,16 +132,16 @@ body {
     text-decoration: none;
     z-index: 9999;
 
-    /* Box Shadow - Sombra para dar profundidade */
+    /* Box Shadow - Sombra para dar profundidade 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 
-    /* Transição suave para o hover */
+    /* Transição suave para o hover 
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 
- /*Estilização para botão whatsapp*/
-/* 
+ Estilização para botão whatsapp
+
 .whatsapp-flutuante:hover {
     background-color: #128c7e;
     /* Verde um pouco mais escuro 

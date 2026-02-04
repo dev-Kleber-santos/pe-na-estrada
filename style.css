@@ -71,14 +71,16 @@ nav {
 }
 
 main {
-    background-color: rgb(38, 90, 126);
-    background-size: cover;
+    background: linear-gradient(
+        to bottom, 
+        rgb(221, 203, 174) 0%, 
+        rgb(128, 117, 104) 100%
+    );
     height: 30vh;
     margin-top: 8vh;
     width: 100%;
     padding: 10px;
 }
-
 .search-container {
     display: flex;
     justify-content: center;
@@ -134,6 +136,8 @@ p {
 
 span {
     font-size: 13px;
+    color: #121212;
+    font-weight: bold;
 }
 
 /* CARDS - Ajustado para o Flip */
@@ -182,7 +186,7 @@ span {
 }
 
 .card-front {
-    background-color: rgb(38, 90, 126);
+    background-color:  rgb(190, 175, 151);
     color: #fff;
     overflow: hidden;
 }
@@ -196,7 +200,7 @@ span {
 }
 
 .card-back {
-    background-color: rgb(38, 90, 126);
+    background-color:  rgb(190, 175, 151);
     color: white;
     transform: rotateY(180deg);
     padding: 20px;
@@ -226,7 +230,7 @@ span {
     padding: 10px 0;
     width: 90%; 
     border: none;
-    background-color: #2c5676; 
+    background-color:  rgb(97, 91, 81); 
     color: #fff;
     border-radius: 10px;
     font-weight: 600;
@@ -244,8 +248,13 @@ span {
 /* --- FIM DAS MUDANÇAS ADICIONADAS --- */
 
 footer {
-    background-color: #1a1a1e; 
-    color: white;
+   
+    background: linear-gradient(
+        to bottom, 
+        rgb(163, 150, 129) 0%, 
+        rgb(37, 34, 30) 100%
+    );
+    color: white; 
     padding: 40px 20px 10px;
     margin-top: 50px;
 }
@@ -265,7 +274,7 @@ footer {
 }
 
 .footer-section h3.logo {
-    color: white;
+    color:  rgb(190, 175, 151);
     margin-bottom: 15px;
     font-size: 20px;
 }
@@ -273,12 +282,12 @@ footer {
 .footer-section h4 {
     margin-bottom: 20px;
     font-size: 18px;
-    color: rgb(38, 90, 126); 
+    color:  rgb(190, 175, 151); 
 }
 
 .footer-section p {
     font-size: 14px;
-    color: #ccc;
+    color:  rgb(190, 175, 151);
     text-align: left; 
     padding: 5px 0;
 }
@@ -289,10 +298,11 @@ footer {
 
 .footer-section ul li {
     margin-bottom: 10px;
+    
 }
 
 .footer-section ul li a {
-    color: #ccc;
+    color:  rgb(190, 175, 151);
     font-size: 14px;
     transition: 0.3s;
 }
@@ -308,7 +318,7 @@ footer {
     padding-top: 20px;
     border-top: 1px solid #333;
     font-size: 12px;
-    color: #777;
+    color: rgb(190, 175, 151);
 }
 
 @media (max-width: 480px) {
@@ -326,7 +336,7 @@ footer {
 .mobile-menu div {
     width: 32px;
     height: 2px;
-    background: rgb(38, 90, 126);
+    background:  rgb(190, 175, 151);
     margin: 8px;
 }
 
@@ -352,7 +362,7 @@ footer {
         right: 0;
         width:  60vw;
         height: 100vh;
-        background:rgba(34, 38, 43, 0.85);
+        background: rgba(202, 186, 161, 0.8);
         backdrop-filter: blur(5px);
         flex-direction: column;
         align-items: center;
@@ -420,7 +430,7 @@ footer {
     .card {
         width: 45%;
         min-width: 160px;    
-        height: 350px;       
+        height: 370px;       
         margin: 5px 0;
     }
 
@@ -429,8 +439,8 @@ footer {
     }
 
     .card-front h1 {
-        font-size: 14px;     
-        padding: 3px;
+        font-size: 15px;     
+        padding: 1px;
     }
 
     .card-date, .card-info {
@@ -459,7 +469,7 @@ footer {
 }
 
 .nav-list li:last-child a {
-    background-color: rgb(38, 90, 126);
+    background-color: rgb(128, 117, 104);
     color: white;
     padding: 8px 20px;
     border-radius: 20px;
@@ -467,7 +477,7 @@ footer {
 }
 
 .nav-list li:last-child a:hover {
-    background-color: #1a1a1e !important;
+    background-color: rgb(207, 190, 163) !important;
     color: #ffffff !important;
     opacity: 1;
     transition: 0.3s;
@@ -492,7 +502,7 @@ footer {
     position: absolute;
     top: -10px;
     right: -10px;
-    background: #ff4d4d;
+    background: #000000;
     color: white;
     border-radius: 50%;
     padding: 2px 6px;
@@ -524,8 +534,8 @@ footer {
 /* Estilo Base do Botão Flutuante */
 .whatsapp-flutuante {
     position: fixed;
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     bottom: 30px;
     right: 30px;
     background-color: #25d366;

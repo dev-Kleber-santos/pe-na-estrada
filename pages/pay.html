@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - ADM Viagens</title>
+    <link rel="stylesheet" href="../css/pay.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    
+    <div class="checkout-container">
+        <div class="resumo-compra">
+            <h4><i class="fa-solid fa-cart-shopping"></i> Itens Reservados</h4>
+            <div id="lista-reservas-resumo"></div>
+            <div class="total-container">
+                <span>Total:</span>
+                <span>R$ <span id="total-pagamento">0,00</span></span>
+            </div>
+        </div>
+
+        <div class="payment-selection">
+            <h4>Selecione a forma de pagamento</h4>
+            <div class="methods-grid">
+                <label class="method-item">
+                    <input type="radio" name="payment-type" value="pix" onclick="changeTab('pix')">
+                    <div class="method-btn"><i class="fa-solid fa-qrcode"></i><span>Pix</span></div>
+                </label>
+                <label class="method-item">
+                    <input type="radio" name="payment-type" value="card" onclick="changeTab('card')" checked>
+                    <div class="method-btn"><i class="fa-solid fa-credit-card"></i><span>Cartão</span></div>
+                </label>
+                <label class="method-item">
+                    <input type="radio" name="payment-type" value="boleto" onclick="changeTab('boleto')">
+                    <div class="method-btn"><i class="fa-solid fa-barcode"></i><span>Boleto</span></div>
+                </label>
+            </div>
+        </div>
+
+        <div class="forms-wrapper">
+            <div class="form-section">
+                <div class="card-form">
+                    <h5><i class="fa-solid fa-user"></i> Dados de Identificação</h5>
+                    <input type="text" id="cliente-nome" placeholder="Seu Nome Completo">
+                    <input type="email" id="cliente-email" placeholder="Seu melhor E-mail">
+                    <input type="tel" id="cliente-tel" placeholder="Telefone / WhatsApp" maxlength="15">
+                    <input type="text" id="cliente-cpf" placeholder="CPF" maxlength="14">
+
+                    <div id="btn-container-alternativo" style="display: none; margin-top: 15px;">
+                        <button class="btn-finish" onclick="finalizarPagamentoInterno()">
+                            <i class="fa-solid fa-check"></i> Finalizar Reserva
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div id="card-area">
+                    <div class="card-credit">
+                        <div id="card-inner-credit">
+                            <div class="card-front-credit">
+                                <div class="card-reflection"></div>
+                                <div class="card-header-real">
+                                    <span class="bank-name">ADM - BANK</span>
+                                    <div id="card-brand" class="brand-logo">BANK</div>
+                                </div>
+                                <div class="chip-container">
+                                    <div class="chip"></div>
+                                    <div class="contactless"><i class="fa-solid fa-wifi"></i></div>
+                                </div>
+                                <div class="number-display" id="display-number">#### #### #### ####</div>
+                                <div class="card-footer-real">
+                                    <div class="info-box">
+                                        <span class="label">NOME DO TITULAR</span>
+                                        <div id="display-name" class="value">NOME NO CARTÃO</div>
+                                    </div>
+                                    <div class="info-box">
+                                        <span class="label">VALIDADE</span>
+                                        <div id="display-expiry" class="value">MM/AA</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-back-credit">
+                                <div class="magnetic-stripe"></div>
+                                <div class="signature-area">
+                                    <div class="cvv-display">
+                                        <span class="label" style="color: #000; font-size: 9px;">CVV</span>
+                                        <div id="display-cvv" class="cvv-value">***</div>
+                                    </div>
+                                </div>
+                                <div class="hologram"></div>
+                                <p class="disclaimer">Ambiente Seguro ADM Viagens</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-form">
+                        <h5><i class="fa-solid fa-credit-card"></i> Dados do Cartão</h5>
+                        <input type="text" id="input-number" placeholder="Número do Cartão" maxlength="19">
+                        <input type="text" id="input-name" placeholder="Nome Impresso no Cartão">
+                        <div class="row">
+                            <input type="text" id="input-expiry" placeholder="MM/AA" maxlength="5">
+                            <input type="text" id="input-cvv" placeholder="CVV" maxlength="3">
+                        </div>
+                        <button class="btn-finish" onclick="finalizarPagamentoInterno()">
+                            <i class="fa-solid fa-lock"></i> Finalizar Pagamento
+                        </button>
+                    </div>
+                </div>
+
+                <div id="pix-content" style="display:none;" class="card-form simple-msg">
+                    <i class="fa-solid fa-qrcode" style="font-size: 3rem; color: #6064b6;"></i>
+                    <p>O QR Code será gerado após finalizar a reserva.</p>
+                </div>
+
+                <div id="boleto-content" style="display:none;" class="card-form simple-msg">
+                    <i class="fa-solid fa-barcode" style="font-size: 3rem; color: #6064b6;"></i>
+                    <p>O boleto será enviado para o e-mail informado ao lado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5511992352785" class="whatsapp-flutuante" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div id="modal-sucesso" class="modal-confirmacao">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-check" style="font-size: 60px; color: #28a745; margin-bottom: 20px;"></i>
+            <h2>Reserva Recebida!</h2>
+            <p style="margin: 20px 0; color: #bbb; line-height: 1.6;">
+                Olá <strong id="modal-cliente-nome"></strong>, as informações da sua reserva e os detalhes do pagamento
+                foram enviados para o e-mail: <br>
+                <span id="modal-cliente-email" style="color: #6064b6;"></span>
+            </p>
+            <button onclick="window.location.href='../index.html'" class="btn-finish">Entendido</button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5511992352785" class="whatsapp-flutuante" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer-fixo">
+        <div class="footer-content">
+            <p>Ainda não terminou de escolher?</p>
+            <a href="../index.html" class="btn-voltar-loja">
+                <i class="fa-solid fa-arrow-left"></i> Voltar para a Loja Principal
+            </a>
+        </div>
+    </footer>
+
+    <script src="../js/pay.js"></script>
+</body>
+
+</html>
