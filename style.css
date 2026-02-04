@@ -41,7 +41,7 @@
 
 /* Barra de navegação */
 a {
-    color: rgb(39, 91, 128);
+    color: rgb(190, 175, 151);
     text-decoration: none;
 }
 
@@ -153,7 +153,7 @@ span {
 .card {
     margin: 20px;
     width: 260px;
-    height: 460px; /* Altura padronizada */
+    height: 460px;
     perspective: 1000px;
     background-color: transparent;
     border: none;
@@ -194,7 +194,7 @@ span {
 /* Ajuste da Imagem */
 .card-front img {
     width: 100%;
-    height: 180px; /* Altura reduzida para ganhar espaço no texto */
+    height: 180px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
@@ -581,4 +581,56 @@ body.dark-mode .acessibilidade-menu button {
     background: #333;
     color: white;
     border-color: #555;
+}
+
+/* --- INTEGRAÇÃO SWIPER (MANTENDO SEU DESIGN) --- */
+
+/* --- INTEGRAÇÃO SWIPER --- */
+
+/* Tamanho padrão (Desktop) */
+.card.swiper-slide {
+    width: 260px !important;
+    height: 460px !important;
+    flex-shrink: 0;
+}
+
+.swiper-slide {
+    width: auto !important; 
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 900px) {
+    #container-cards-dinamicos {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 20px;
+        transform: none !important;
+        width: 100% !important;
+    }
+    .swiper-pagination {
+        display: none !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .card.swiper-slide {
+        width: 200px !important; /* Um pouco mais estreito */
+        height: 400px !important; /* Menor para a imagem aparecer */
+    }
+
+    /* Forçando a imagem a aparecer com um tamanho bom */
+    .card-front img {
+        height: 135px !important; 
+        object-fit: cover;
+    }
+
+    .main.swiper {
+        padding-bottom: 55px;
+        overflow: hidden;
+    }
+    .main {
+        display: block; 
+    }
 }

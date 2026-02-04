@@ -12,7 +12,7 @@ class Viagem {
         const dadosSimples = JSON.stringify({ cidade: this.cidade, valor: this.valor });
 
         return `
-            <div class="card">
+            <div class="card swiper-slide">
                 <div class="card-inner">
                     <div class="card-front" style="display: flex; flex-direction: column; height: 100%;">
                         <img src="${this.imagem}" alt="${this.cidade}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'">
@@ -51,10 +51,27 @@ class Viagem {
     }
 }
 
-// --- BANCO DE DADOS INICIAL (VAI APARECER ASSIM QUE ABRIR) ---
+let swiper;
+
+function initSwiper() {
+    swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto", 
+        spaceBetween: 20,
+        centeredSlides: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            1000: {
+                enabled: false, 
+            },
+        },
+    });
+}
+
 function verificarDadosIniciais() {
     const dados = localStorage.getItem('viagens_db');
-
     if (!dados || JSON.parse(dados).length === 0) {
         const exemplos = [
             {
@@ -83,10 +100,8 @@ function verificarDadosIniciais() {
     }
 }
 
-// --- LOGICA DE RENDERIZAÇÃO E CARRINHO ---
-
 function carregarViagens() {
-    const vitrine = document.getElementById('vitrine-viagens');
+    const vitrine = document.getElementById('container-cards-dinamicos');
     if (!vitrine) return;
 
     const dados = JSON.parse(localStorage.getItem('viagens_db')) || [];
@@ -96,6 +111,7 @@ function carregarViagens() {
     }).join('');
 
     atualizarContadorCarrinho();
+    if(swiper) swiper.update();
 }
 
 function adicionarAoCarrinho(item) {
@@ -121,7 +137,7 @@ function toggleFlip(botao) {
 
 function filtrarCidades() {
     const input = document.getElementById('searchInput');
-    const vitrine = document.getElementById('vitrine-viagens');
+    const vitrine = document.getElementById('container-cards-dinamicos');
     if (!input || !vitrine) return;
 
     const termo = input.value.toLowerCase();
@@ -132,10 +148,12 @@ function filtrarCidades() {
         const v = new Viagem(item.cidade, item.info, item.valor, item.imagem, item.data);
         return v.renderizar();
     }).join('');
+
+    if(swiper) swiper.update();
 }
 
-// Inicialização
 window.onload = () => {
     verificarDadosIniciais();
+    initSwiper();
     carregarViagens();
 };
