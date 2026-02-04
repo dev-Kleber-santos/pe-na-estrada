@@ -31,8 +31,6 @@ body {
     height: 100%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-
-
     left: 0;
 }
 .title {
@@ -387,116 +385,54 @@ input:-webkit-autofill
         top: 60%;
         left: 0;
         border-radius: 0;
-    }
-}
-
-
-
-/*  Animação CSS MOBILE*/
-
-@keyframes deslocamentoEsq {
-
-    from {
-        top:0;
-        opacity: 1;
-        z-index: 12;
-    }
-    25% {
-        top: -80px;
-        opacity: .5;
+        /* MUDANÇA AQUI: Chamar animação mobile */
+        animation: slideinMobile 1.3s;
     }
 
-    50% {
-        top:-100px;
-        opacity: .2;
+    /* MUDANÇA AQUI: Chamar animação mobile */
+    .sign-up-js .content::before {
+        animation: slideoutMobile 1.3s; 
     }
 
-    to {
-        top:-110px;
-        opacity: 0;
-        z-index: -1;
-    }
-}
-
-
-@keyframes deslocamentoDir {
-
-    from {
-        top: 0;
-        z-index: 12;
+    /* MUDANÇA AQUI: Chamar animação mobile */
+    .sign-in-js .first-content .second-column {
+        animation: deslocamentoEsqMobile 0.1s; 
     }
 
-    25% {
-        top: 80px;
+    /* MUDANÇA AQUI: Chamar animação mobile */
+    .sign-up-js .second-content .second-column {
+        animation: deslocamentoDirMobile 0.1s; 
     }
 
-    50% {
-        top: 100px;
-        
+    /* ANIMAÇÕES MOBILE RENOMEADAS */
+    @keyframes deslocamentoEsqMobile {
+        from { top:0; opacity: 1; z-index: 12; }
+        25% { top: -80px; opacity: .5; }
+        50% { top:-100px; opacity: .2; }
+        to { top:-110px; opacity: 0; z-index: -1; }
     }
 
-    to {
-        top: 110px;
-        z-index: -1;
-    }
-}
-
-
-/*ANIMAÇÃO CSS*/
-
-@keyframes slidein {
-
-    from {
-        top: 0;
-        height: 40%;
+    @keyframes deslocamentoDirMobile {
+        from { top: 0; z-index: 12; }
+        25% { top: 80px; }
+        50% { top: 100px; }
+        to { top: 110px; z-index: -1; }
     }
 
-    25% {
-        top: 5%;
-        height: 50%;
+    @keyframes slideinMobile {
+        from { top: 0; height: 40%; }
+        25% { top: 5%; height: 50%; }
+        50% { top: 25%; height: 60%; }
+        75% { top: 45%; height: 50%; }
+        to { top: 60%; height: 40%; }
     }
 
-    50% {
-        top: 25%;
-        height: 60%;
-    }
-
-    75% {
-        top: 45%;
-        height: 50%;
-    }
-
-    to {
-        top: 60%;
-        height: 40%;
-    }
-}
-
-@keyframes slideout {
-
-    from {
-        top: 60%;
-        height: 40%;
-    }
-
-    25% {
-        top: 45%;
-        height: 50%;
-    }
-
-    50% {
-        top: 25%;
-        height: 60%;
-    }
-
-    75% {
-        top: 5%;
-        height: 50%;
-    }
-
-    to {
-        top: 0;
-        height: 40%;
+    @keyframes slideoutMobile {
+        from { top: 60%; height: 40%; }
+        25% { top: 45%; height: 50%; }
+        50% { top: 25%; height: 60%; }
+        75% { top: 5%; height: 50%; }
+        to { top: 0; height: 40%; }
     }
 }
 
@@ -518,7 +454,6 @@ input:-webkit-autofill
     justify-content: center;
     width: 100%; 
 }
-
 
 .google-btn-ajuste {
     border: none;
