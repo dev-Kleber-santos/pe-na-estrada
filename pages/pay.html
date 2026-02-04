@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    
+
     <div class="checkout-container">
         <div class="resumo-compra">
             <h4><i class="fa-solid fa-cart-shopping"></i> Itens Reservados</h4>
@@ -152,6 +152,11 @@
             </a>
         </div>
     </footer>
+    <script src="../js/auth.js"></script>
+    <div id="google-pay-fast"></div>
+    <script>
+        window.onload = () => inicializarGoogle("google-pay-fast");
+    </script>
 
     <script src="../js/pay.js"></script>
 </body>
