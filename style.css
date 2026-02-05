@@ -140,7 +140,6 @@ span {
     font-weight: bold;
 }
 
-/* CARDS - Ajustado para o Flip */
 .main {
     display: flex;
     justify-content: center;
@@ -191,7 +190,6 @@ span {
     overflow: hidden;
 }
 
-/* Ajuste da Imagem */
 .card-front img {
     width: 100%;
     height: 180px;
@@ -214,38 +212,12 @@ span {
     justify-content: space-between;
 }
 
-/* --- MUDANÇAS ADICIONADAS PARA ALINHAR O BOTÃO --- */
-.card-content {
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: center;
-    flex-grow: 1;
-    width: 100%;
-}
-
-.btn {
-    font-size: 15px; 
-    padding: 10px 0;
-    width: 90%; 
-    border: none;
-    background-color:  rgb(97, 91, 81); 
-    color: #fff;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: 0.5s background;
-    cursor: pointer;
-    margin-top: auto; 
-    margin-bottom: 10px;
-}
 
 .btn:hover {
     background-color: #949191;
     transition: 0.5s background;
 }
 
-/* --- FIM DAS MUDANÇAS ADICIONADAS --- */
 
 footer {
    
@@ -529,8 +501,8 @@ footer {
 .btn-reservar:hover {
     background-color: #218838;
 }
+/* BOTÃO DO WHATSAPP /*/
 
-/* Estilo Base do Botão Flutuante */
 .whatsapp-flutuante {
     position: fixed;
     width: 50px;
@@ -554,7 +526,6 @@ footer {
     transform: scale(0.9);
 }
 
-/* Garante que o VLibras fique visível e acima de tudo */
 .enabled {
     z-index: 999999 !important;
 }
@@ -562,8 +533,8 @@ footer {
 .vp-plugin-wrapper {
     z-index: 999999 !important;
 }
+/* MODO ESCURO */
 
-/* Classe de Tema Escuro */
 body.dark-mode {
     --bg-body: #121212;
     --text-color: #ffffff;
@@ -572,15 +543,38 @@ body.dark-mode {
     color: var(--text-color);
 }
 
-body.dark-mode nav { background: var(--nav-bg); }
-body.dark-mode .card-front { background-color: #1e1e1e; border: 1px solid #333; }
-body.dark-mode a { color: #8bb6d9; }
+body.dark-mode nav { 
+    background: var(--nav-bg); 
+    border-bottom: 1px solid #333; 
+}
+
+body.dark-mode .logo span,
+body.dark-mode .nav-list li a,
+body.dark-mode #toggle-dark-mode i {
+    color: #ffffff !important;
+}
+
+body.dark-mode .card-front { 
+    background-color: #1e1e1e; 
+    border: 1px solid #333; 
+}
+
+body.dark-mode a { 
+    color: #8bb6d9; 
+}
 
 body.dark-mode .acessibilidade-menu button {
     background: #333;
     color: white;
     border-color: #555;
 }
+
+body.dark-mode #cart-count {
+    background: #ffffff;
+    color: #121212;
+}
+
+/* CARROSEL PARA MOBILE */ 
 
 
 .card.swiper-slide {
@@ -615,7 +609,7 @@ body.dark-mode .acessibilidade-menu button {
         height: 400px !important;
     }
 
-    /* Forçando a imagem a aparecer com um tamanho bom */
+    
     .card-front img {
         height: 135px !important; 
         object-fit: cover;
@@ -628,4 +622,41 @@ body.dark-mode .acessibilidade-menu button {
     .main {
         display: block; 
     }
+}
+
+/* AJUSTE PARA QUE OS BOTÕES FIQUEM DO MESMO TAMANHO QND FOR ADICIONADOS PELO ADM */
+
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    flex-grow: 1; 
+    width: 100%;
+}
+
+.card-front {
+    background-color: rgb(190, 175, 151);
+    color: #fff;
+    overflow: hidden;
+    display: flex;           
+    flex-direction: column;
+    height: 100%;          
+}
+
+.btn {
+    font-size: 15px; 
+    padding: 10px 0;
+    width: 90%; 
+    border: none;
+    background-color: rgb(97, 91, 81); 
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.5s background;
+    cursor: pointer;
+    margin-top: auto; 
+    margin-bottom: 10px;
 }

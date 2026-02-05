@@ -12,53 +12,51 @@ class Viagem {
         const dadosSimples = JSON.stringify({ cidade: this.cidade, valor: this.valor });
 
         return `
-            <div class="card swiper-slide">
-                <div class="card-inner">
-                    <div class="card-front" style="display: flex; flex-direction: column; height: 100%;">
-                        <img src="${this.imagem}" alt="${this.cidade}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'">
+        <div class="card swiper-slide">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="${this.imagem}" alt="${this.cidade}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'">
+                    
+                    <div class="card-content">
+                        <h1 style="font-size: 1.2rem; margin: 0;">${this.cidade}</h1>
+                        <p style="font-weight: bold; color: #ff4d4d; margin: 5px 0; font-size: 0.9rem; padding:0;">📅 ${dataFormatada}</p>
+                        <p style="font-size: 0.8rem; margin: 0; line-height: 1.2; padding: 5px;">${this.info}</p>
                         
-                        <div style="padding: 10px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; align-items: center;">
-                            <h1 style="font-size: 1.2rem; margin: 0;">${this.cidade}</h1>
-                            <p style="font-weight: bold; color: #ff4d4d; margin: 5px 0; font-size: 0.9rem; padding:0;">📅 ${dataFormatada}</p>
-                            <p style="font-size: 0.8rem; margin: 0; line-height: 1.2; padding: 5px;">${this.info}</p>
-                            
-                            <div class="preco" style="margin: 5px 0;">
-                                <span style="display:block; font-size: 10px; text-transform: uppercase;">Preço</span>
-                                <strong style="font-size: 1.1rem;">R$ ${this.valor}</strong>
-                            </div>
-                            
-                            <button class="btn" style="width: 90%; padding: 8px 0;" onclick="toggleFlip(this)">Mais Informações</button>
+                        <div class="preco" style="margin: 5px 0;">
+                            <span style="display:block; font-size: 10px; text-transform: uppercase;">Preço</span>
+                            <strong style="font-size: 1.1rem;">R$ ${this.valor}</strong>
                         </div>
+                        
+                        <button class="btn" onclick="toggleFlip(this)">Mais Informações</button>
                     </div>
+                </div>
 
-                    <div class="card-back" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; padding: 20px; box-sizing: border-box;">
-                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                            <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Detalhes do Pacote</h3>
-                            <p style="font-size: 0.85rem; padding: 5px;"><strong>Partida:</strong> ${dataFormatada}</p>
-                            <p style="font-size: 0.85rem; padding: 5px;">Aproveite o melhor de ${this.cidade}. Suporte 24h e guia turístico incluso.</p>
-                        </div>
-                        
-                        <div style="width: 100%;">
-                            <button class="btn-reservar" style="width: 100%; margin-bottom: 10px;" onclick='adicionarAoCarrinho(${dadosSimples})'>
-                                <i class="fa-solid fa-suitcase-rolling"></i> Reservar
-                            </button>
-                            <button class="btn" style="width: 100%; background: #555; padding: 8px 0;" onclick="toggleFlip(this)">Voltar</button>
-                        </div>
+                <div class="card-back">
+                    <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Detalhes do Pacote</h3>
+                        <p style="font-size: 0.85rem; padding: 5px;"><strong>Partida:</strong> ${dataFormatada}</p>
+                        <p style="font-size: 0.85rem; padding: 5px;">Aproveite o melhor de ${this.cidade}. Suporte 24h e guia turístico incluso.</p>
+                    </div>
+                    
+                    <div style="width: 100%;">
+                        <button class="btn-reservar" onclick='adicionarAoCarrinho(${dadosSimples})'>
+                            <i class="fa-solid fa-suitcase-rolling"></i> Reservar
+                        </button>
+                        <button class="btn" style="background: #555;" onclick="toggleFlip(this)">Voltar</button>
                     </div>
                 </div>
             </div>
-        `;
+        </div>
+    `;
     }
 }
 
-// Variável global para a instância do Swiper
 let swiperInstance;
 
 function initSwiper() {
-    // Inicializa o Swiper apenas se houver o container na página
     if (document.querySelector(".mySwiper")) {
         swiperInstance = new Swiper(".mySwiper", {
-            slidesPerView: "auto", 
+            slidesPerView: "auto",
             spaceBetween: 20,
             centeredSlides: true,
             pagination: {
@@ -67,7 +65,7 @@ function initSwiper() {
             },
             breakpoints: {
                 1000: {
-                    enabled: false, 
+                    enabled: false,
                 },
             },
         });
@@ -115,8 +113,7 @@ function carregarViagens() {
     }).join('');
 
     atualizarContadorCarrinho();
-    
-    // Atualiza a instância do Swiper após injetar novos cards
+
     if (swiperInstance) {
         swiperInstance.update();
     }
@@ -157,15 +154,13 @@ function filtrarCidades() {
         return v.renderizar();
     }).join('');
 
-    // Garante que o carrossel se ajuste aos itens filtrados
     if (swiperInstance) {
         swiperInstance.update();
     }
 }
 
-// Inicialização unificada
 window.onload = () => {
     verificarDadosIniciais();
-    initSwiper(); // Inicia o motor do carrossel primeiro
-    carregarViagens(); // Carrega e atualiza os itens
+    initSwiper(); 
+    carregarViagens(); 
 };

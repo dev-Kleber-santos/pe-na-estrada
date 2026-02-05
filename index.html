@@ -15,7 +15,6 @@
     <link rel="apple-touch-icon" href="../assets/logo (2).png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
@@ -42,6 +41,11 @@
             </div>
 
             <ul class="nav-list">
+                <li>
+                    <button id="toggle-dark-mode" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; color: #555;">
+                        <i class="fa-solid fa-moon" id="dark-mode-icon"></i>
+                    </button>
+                </li>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="pages/admin.html">Administração</a></li>
                 <li><a href="pages/login.html">Entrar</a></li>
@@ -70,7 +74,7 @@
 
     <div class="main swiper mySwiper" id="vitrine-viagens">
         <div class="swiper-wrapper" id="container-cards-dinamicos">
-            </div>
+        </div>
         <div class="swiper-pagination"></div>
     </div>
 
@@ -108,6 +112,29 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/mobile-navbar.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        const darkModeBtn = document.getElementById('toggle-dark-mode');
+        const body = document.body;
+        const icon = document.getElementById('dark-mode-icon');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        darkModeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
