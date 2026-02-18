@@ -18,7 +18,7 @@ class Viagem {
                     <img src="${this.imagem}" alt="${this.cidade}" onerror="this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível'">
                     
                     <div class="card-content">
-                        <h1 style="font-size: 1.2rem; margin: 0;">${this.cidade}</h1>
+                        <h1 style="font-size: 1.0rem; margin: 0;">${this.cidade}</h1>
                         <p style="font-weight: bold; color: #ff4d4d; margin: 5px 0; font-size: 0.9rem; padding:0;">📅 ${dataFormatada}</p>
                         <p style="font-size: 0.8rem; margin: 0; line-height: 1.2; padding: 5px;">${this.info}</p>
                         
@@ -27,7 +27,7 @@ class Viagem {
                             <strong style="font-size: 1.1rem;">R$ ${this.valor}</strong>
                         </div>
                         
-                        <button class="btn" onclick="toggleFlip(this)">Mais Informações</button>
+                        <button class="btn"  style="margin-top:auto" onclick="toggleFlip(this)" >Mais Informações</button>
                     </div>
                 </div>
 

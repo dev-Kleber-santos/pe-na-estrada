@@ -657,6 +657,6 @@ body.dark-mode #cart-count {
     font-weight: 600;
     transition: 0.5s background;
     cursor: pointer;
-    margin-top: auto; 
-    margin-bottom: 10px;
+    margin-top:auto; 
+    margin-bottom: 25px;
 }
